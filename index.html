@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清风小筑 - 首页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">清风小筑</a>
+            <nav>
+                <a href="index.html" class="active">首页</a>
+                <a href="archive.html">归档</a>
+                <a href="about.html">关于</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">🌙</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>记录思考，分享生活</h1>
+            <p>在喧嚣的世界里，留一方清净之地，用文字记录时光的痕迹。</p>
+        </section>
+
+        <section class="posts">
+            <article class="post-card">
+                <div class="post-meta">
+                    <time datetime="2026-05-28">2026年5月28日</time>
+                    <span class="post-tag">随笔</span>
+                </div>
+                <h2><a href="post.html">夏日午后的雨</a></h2>
+                <p>窗外的雨声淅淅沥沥，像是大自然的乐章。我喜欢在这样的午后，泡一杯清茶，静静地听雨。雨滴打在树叶上，发出清脆的声响，仿佛在诉说着什么故事...</p>
+                <a href="post.html" class="read-more">阅读更多 →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <time datetime="2026-05-25">2026年5月25日</time>
+                    <span class="post-tag">技术</span>
+                </div>
+                <h2><a href="post.html">使用 GitHub Pages 搭建个人博客</a></h2>
+                <p>GitHub Pages 是一个免费的静态网站托管服务，非常适合用来搭建个人博客。本文将详细介绍如何从零开始，使用 GitHub Pages 和自定义域名搭建一个属于你自己的博客站点...</p>
+                <a href="post.html" class="read-more">阅读更多 →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <time datetime="2026-05-20">2026年5月20日</time>
+                    <span class="post-tag">摄影</span>
+                </div>
+                <h2><a href="post.html">春天里的色彩</a></h2>
+                <p>春天总是悄然而至，当你还沉浸在冬日的余韵中时，枝头已经冒出了嫩绿的新芽。拿起相机，记录下这些美好的瞬间，让色彩在镜头中永恒...</p>
+                <a href="post.html" class="read-more">阅读更多 →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <time datetime="2026-05-15">2026年5月15日</time>
+                    <span class="post-tag">读书</span>
+                </div>
+                <h2><a href="post.html">读《小王子》有感</a></h2>
+                <p>"只有用心看，才能看得真切；重要的东西，眼睛是看不见的。"每次重读《小王子》，都会有新的感悟。这本书不仅仅是一个童话，更是一面镜子，照出我们内心的童真与纯粹...</p>
+                <a href="post.html" class="read-more">阅读更多 →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <time datetime="2026-05-10">2026年5月10日</time>
+                    <span class="post-tag">生活</span>
+                </div>
+                <h2><a href="post.html">清晨的菜市场</a></h2>
+                <p>清晨六点，菜市场已经热闹起来了。摊主们吆喝着，顾客们挑选着新鲜的蔬菜水果。这里充满了生活的气息，每一种食材都带着泥土的芬芳，让人感受到最朴实的人间烟火...</p>
+                <a href="post.html" class="read-more">阅读更多 →</a>
+            </article>
+        </section>
+
+        <div class="pagination">
+            <span class="page-current">1</span>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-next">下一页 →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 清风小筑 · Powered by GitHub Pages</p>
+            <div class="social-links">
+                <a href="#" title="GitHub">GitHub</a>
+                <a href="#" title="微博">微博</a>
+                <a href="#" title="RSS">RSS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+            document.body.classList.add('dark');
+            toggle.textContent = '☀️';
+        }
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            toggle.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>
