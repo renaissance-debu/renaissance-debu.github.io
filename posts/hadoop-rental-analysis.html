@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于 Hadoop + Hive + Spark 的阜阳租房数据分析 - 百谷黍 · baigushu</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">baigushu</a>
+            <nav>
+                <a href="../index.html">首页</a>
+                <a href="../archive.html" class="active">归档</a>
+                <a href="../about.html">关于</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">🌙</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="post-full">
+            <header class="post-full-header">
+                <div class="post-meta">
+                    <time datetime="2026-09-05">2026年9月5日</time>
+                    <span class="post-tag">大数据</span>
+                </div>
+                <h1>基于 Hadoop + Hive + Spark 的阜阳租房数据分析</h1>
+            </header>
+
+            <div class="post-full-content">
+                <p>这门课的实践题目是"用大数据技术分析一个真实的城市数据集"。我选了家乡阜阳的租房市场——选题的理由很简单：数据好爬、维度够用，而且分析结果对在阜阳租房的人真的有用。</p>
+
+                <h2>整体流程</h2>
+                <p>数据流一共五层：八爪鱼采集器爬取贝壳找房阜阳站的 180 条房源（10 个字段，覆盖颍州、颍泉、颍东三个区）→ CSV 经 SCP 传进虚拟机上传 HDFS → Hive 外部表映射完成清洗 → PySpark 做多维分析 → Matplotlib 出图。</p>
+                <p>环境是在 VMware 虚拟机里从零搭的：Hadoop 3.3.5 + Hive 3.1.3 + Spark 3.4.0（Local 模式）。现在回头看搭环境的过程比写分析代码学到的还多——NameNode 起不来、Hive 元数据库连不上，这些坑都得一个个踩。</p>
+
+                <h2>数据清洗是最费时间的一步</h2>
+                <p>原始数据里的问题比想象中多：月租和面积有缺失、有月租 50 元的异常记录、同小区同户型的重复房源、还有"3室2厅 | 南北通透 | 8/18层"这种混在一个字段里的信息。</p>
+                <p>我用 Hive 完成了五类清洗：缺失值剔除、异常值过滤（月租 200~10000 元、面积 20~500㎡ 之外剔除）、同小区同租同面积去重、正则表达式解析户型和楼层、派生字段计算（每平米单价、户型分类、面积段分类）。清洗前后都做了数据量核对，这一步不能省。</p>
+
+                <h2>几个有意思的发现</h2>
+                <p>六个分析维度里，有几个结果挺出意料：</p>
+                <p><strong>颍州区租金比颍东区高约 50%</strong>——商业中心加优质学区的溢价非常明显；<strong>三居室占了房源的 52%</strong>——阜阳租房市场以家庭整租为主，和一线城市以单身合租为主的结构完全不同；<strong>面积每增加 1㎡，月租平均只涨 6.96 元</strong>——但小户型的每平米单价反而更高，小户型溢价是普遍规律。</p>
+
+                <h2>反思</h2>
+                <p>最大的不足是样本量：180 条数据做"市场规律"分析其实撑不太住，只能算一次完整的流程演练。如果重做一遍，我会把采集范围扩大到几个城市做横向对比，并尝试用 Spark MLlib 拟合租金预测模型，让分析从"描述"走向"预测"。</p>
+
+                <blockquote>
+                    工具本身不难，难的是每一步都知道自己为什么这么做——为什么用外部表、为什么这样定异常值边界、为什么清洗后要核对数据量。数据工程的习惯比技能清单重要。
+                </blockquote>
+            </div>
+
+            <div class="post-footer">
+                <div class="post-nav">
+                    <span class="post-nav-prev">← <a href="../archive.html">返回归档</a></span>
+                    <span class="post-nav-next"><a href="build-personal-site.html">用纯 HTML + CSS 搭起这个网站</a> →</span>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 百谷黍 · baigushu</p>
+            <div class="social-links">
+                <a href="https://github.com/renaissance-debu" target="_blank" rel="noopener" title="GitHub">GitHub</a>
+                <a href="mailto:baigushu666@gmail.com" title="Email">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+            document.body.classList.add('dark');
+            toggle.textContent = '☀️';
+        }
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            toggle.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>清风小筑 - 首页</title>
+    <meta name="description" content="百谷黍（baigushu）的个人主页 —— 软件工程应届生，项目与技术分享">
+    <title>百谷黍 · baigushu - 首页</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="index.html" class="logo">清风小筑</a>
+            <a href="index.html" class="logo">baigushu</a>
             <nav>
                 <a href="index.html" class="active">首页</a>
                 <a href="archive.html">归档</a>
@@ -21,77 +22,109 @@
 
     <main class="container">
         <section class="hero">
-            <h1>记录思考，分享生活</h1>
-            <p>在喧嚣的世界里，留一方清净之地，用文字记录时光的痕迹。</p>
+            <h1>你好，我是百谷黍</h1>
+            <p>软件工程 2027 届应届生，主攻测试与 Java 后端方向，喜欢把想法做成能跑起来的东西。这里是我的自留地：项目、思考与记录。</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">查看我的项目</a>
+                <a href="about.html" class="btn btn-ghost">关于我</a>
+            </div>
         </section>
 
-        <section class="posts">
-            <article class="post-card">
-                <div class="post-meta">
-                    <time datetime="2026-05-28">2026年5月28日</time>
-                    <span class="post-tag">随笔</span>
-                </div>
-                <h2><a href="post.html">夏日午后的雨</a></h2>
-                <p>窗外的雨声淅淅沥沥，像是大自然的乐章。我喜欢在这样的午后，泡一杯清茶，静静地听雨。雨滴打在树叶上，发出清脆的声响，仿佛在诉说着什么故事...</p>
-                <a href="post.html" class="read-more">阅读更多 →</a>
-            </article>
-
-            <article class="post-card">
-                <div class="post-meta">
-                    <time datetime="2026-05-25">2026年5月25日</time>
-                    <span class="post-tag">技术</span>
-                </div>
-                <h2><a href="post.html">使用 GitHub Pages 搭建个人博客</a></h2>
-                <p>GitHub Pages 是一个免费的静态网站托管服务，非常适合用来搭建个人博客。本文将详细介绍如何从零开始，使用 GitHub Pages 和自定义域名搭建一个属于你自己的博客站点...</p>
-                <a href="post.html" class="read-more">阅读更多 →</a>
-            </article>
-
-            <article class="post-card">
-                <div class="post-meta">
-                    <time datetime="2026-05-20">2026年5月20日</time>
-                    <span class="post-tag">摄影</span>
-                </div>
-                <h2><a href="post.html">春天里的色彩</a></h2>
-                <p>春天总是悄然而至，当你还沉浸在冬日的余韵中时，枝头已经冒出了嫩绿的新芽。拿起相机，记录下这些美好的瞬间，让色彩在镜头中永恒...</p>
-                <a href="post.html" class="read-more">阅读更多 →</a>
-            </article>
-
-            <article class="post-card">
-                <div class="post-meta">
-                    <time datetime="2026-05-15">2026年5月15日</time>
-                    <span class="post-tag">读书</span>
-                </div>
-                <h2><a href="post.html">读《小王子》有感</a></h2>
-                <p>"只有用心看，才能看得真切；重要的东西，眼睛是看不见的。"每次重读《小王子》，都会有新的感悟。这本书不仅仅是一个童话，更是一面镜子，照出我们内心的童真与纯粹...</p>
-                <a href="post.html" class="read-more">阅读更多 →</a>
-            </article>
-
-            <article class="post-card">
-                <div class="post-meta">
-                    <time datetime="2026-05-10">2026年5月10日</time>
-                    <span class="post-tag">生活</span>
-                </div>
-                <h2><a href="post.html">清晨的菜市场</a></h2>
-                <p>清晨六点，菜市场已经热闹起来了。摊主们吆喝着，顾客们挑选着新鲜的蔬菜水果。这里充满了生活的气息，每一种食材都带着泥土的芬芳，让人感受到最朴实的人间烟火...</p>
-                <a href="post.html" class="read-more">阅读更多 →</a>
-            </article>
+        <section class="home-section" id="skills">
+            <h2 class="section-title">技术栈</h2>
+            <div class="skill-group">
+                <span class="skill-label">语言</span>
+                <span class="chip">Java</span>
+                <span class="chip">Python</span>
+                <span class="chip">SQL</span>
+            </div>
+            <div class="skill-group">
+                <span class="skill-label">后端</span>
+                <span class="chip">Spring Boot</span>
+                <span class="chip">MyBatis</span>
+                <span class="chip">Flask</span>
+            </div>
+            <div class="skill-group">
+                <span class="skill-label">数据库</span>
+                <span class="chip">MySQL</span>
+                <span class="chip">SQLite</span>
+                <span class="chip">Hive</span>
+            </div>
+            <div class="skill-group">
+                <span class="skill-label">工具</span>
+                <span class="chip">Git</span>
+                <span class="chip">Linux</span>
+                <span class="chip">Maven</span>
+                <span class="chip">Postman</span>
+                <span class="chip">Hadoop / Spark</span>
+            </div>
         </section>
 
-        <div class="pagination">
-            <span class="page-current">1</span>
-            <a href="#" class="page-link">2</a>
-            <a href="#" class="page-link">3</a>
-            <a href="#" class="page-next">下一页 →</a>
-        </div>
+        <section class="home-section" id="projects">
+            <h2 class="section-title">项目经历</h2>
+            <div class="posts">
+                <article class="post-card">
+                    <div class="post-meta">
+                        <span class="post-tag">Python</span>
+                        <span class="post-tag">Flask</span>
+                        <span class="post-tag">OpenCV</span>
+                    </div>
+                    <h2><a href="https://github.com/renaissance-debu/face-attendance-system" target="_blank" rel="noopener">人脸识别考勤系统</a></h2>
+                    <p>基于 Flask + face_recognition 的 B/S 架构考勤系统：人脸注册、实时识别登录与打卡、管理员后台与 CSV 导出，JWT 接口鉴权，支持打包为 Windows 免安装程序。</p>
+                    <a href="https://github.com/renaissance-debu/face-attendance-system" target="_blank" rel="noopener" class="read-more">GitHub 仓库 →</a>
+                </article>
+                <article class="post-card">
+                    <div class="post-meta">
+                        <span class="post-tag">Java</span>
+                        <span class="post-tag">Spring Boot</span>
+                        <span class="post-tag">MySQL</span>
+                    </div>
+                    <h2><a href="https://github.com/renaissance-debu/alumni-management-system" target="_blank" rel="noopener">校友信息管理系统</a></h2>
+                    <p>Spring Boot + MyBatis 的 RESTful 管理平台：增删改查、姓名模糊/学号精确的多条件组合检索与统计接口，409/404 异常语义完整，Bootstrap 5 单页前端。</p>
+                    <a href="https://github.com/renaissance-debu/alumni-management-system" target="_blank" rel="noopener" class="read-more">GitHub 仓库 →</a>
+                </article>
+                <article class="post-card">
+                    <div class="post-meta">
+                        <span class="post-tag">Hadoop</span>
+                        <span class="post-tag">Hive</span>
+                        <span class="post-tag">Spark</span>
+                    </div>
+                    <h2><a href="posts/hadoop-rental-analysis.html">阜阳租房数据分析</a></h2>
+                    <p>从零在虚拟机搭建 Hadoop 3.3.5 + Hive 3.1.3 + Spark 3.4.0 环境，爬取贝壳找房 180 条房源数据完成清洗入库与六个维度的离线分析，可视化呈现租金分布规律。</p>
+                    <a href="posts/hadoop-rental-analysis.html" class="read-more">阅读实践记录 →</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="home-section" id="blog">
+            <h2 class="section-title">最新文章</h2>
+            <div class="posts">
+                <article class="post-card">
+                    <div class="post-meta">
+                        <time datetime="2026-09-09">2026年9月9日</time>
+                        <span class="post-tag">技术</span>
+                    </div>
+                    <h2><a href="posts/build-personal-site.html">用纯 HTML + CSS + GitHub Pages 搭起这个网站</a></h2>
+                    <p>没有框架、没有构建工具，从设计变量到暗色模式，一个静态个人站的完整搭建记录。</p>
+                </article>
+                <article class="post-card">
+                    <div class="post-meta">
+                        <time datetime="2026-09-05">2026年9月5日</time>
+                        <span class="post-tag">大数据</span>
+                    </div>
+                    <h2><a href="posts/hadoop-rental-analysis.html">基于 Hadoop + Hive + Spark 的阜阳租房数据分析</a></h2>
+                    <p>一次完整的大数据离线分析实践：数据采集、环境搭建、数仓清洗、多维分析与可视化。</p>
+                </article>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 清风小筑 · Powered by GitHub Pages</p>
+            <p>&copy; 2026 百谷黍 · baigushu</p>
             <div class="social-links">
-                <a href="#" title="GitHub">GitHub</a>
-                <a href="#" title="微博">微博</a>
-                <a href="#" title="RSS">RSS</a>
+                <a href="https://github.com/renaissance-debu" target="_blank" rel="noopener" title="GitHub">GitHub</a>
+                <a href="mailto:baigushu666@gmail.com" title="Email">Email</a>
             </div>
         </div>
     </footer>

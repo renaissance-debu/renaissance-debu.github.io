@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用纯 HTML + CSS + GitHub Pages 搭起这个网站 - 百谷黍 · baigushu</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">baigushu</a>
+            <nav>
+                <a href="../index.html">首页</a>
+                <a href="../archive.html" class="active">归档</a>
+                <a href="../about.html">关于</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">🌙</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="post-full">
+            <header class="post-full-header">
+                <div class="post-meta">
+                    <time datetime="2026-09-09">2026年9月9日</time>
+                    <span class="post-tag">技术</span>
+                </div>
+                <h1>用纯 HTML + CSS + GitHub Pages 搭起这个网站</h1>
+            </header>
+
+            <div class="post-full-content">
+                <p>你现在看到的这个网站，没有用任何框架，没有 npm，没有构建工具，就是几个 HTML 文件加一份 700 多行的 CSS，托管在 GitHub Pages 上。写这篇文章记录一下搭建过程和取舍。</p>
+
+                <h2>为什么不用现成的博客框架</h2>
+                <p>Hugo、Hexo、Jekyll 都很好，但对一个想彻底搞懂网页基础的人来说，它们把太多事情藏起来了。手写 HTML + CSS 的好处是：页面上的每一个像素、每一个交互都是自己写出来的，以后学 Vue 或 React 时，也更容易理解框架到底替你做了什么。</p>
+
+                <h2>几个设计决策</h2>
+                <p><strong>CSS 变量做主题系统。</strong>所有颜色定义成 :root 变量，暗色模式只需要在 body.dark 下覆盖同一组变量，切换主题不用重新渲染任何东西。</p>
+                <p><strong>粘性导航 + 毛玻璃。</strong>header 用 position: sticky 加 backdrop-filter，滚动时内容从半透明导航下面穿过，观感立刻上一个档次。</p>
+                <p><strong>卡片式布局。</strong>项目卡片和文章卡片复用同一套 .post-card 样式，hover 时 translateY(-2px) 加阴影加深，配合 fadeInUp 入场动画。</p>
+
+                <h2>暗色模式的实现</h2>
+                <p>核心逻辑不到十行 JavaScript：点击按钮切换 body 的 dark 类，用 localStorage 记住选择，页面加载时先读取。因为所有颜色都走变量，切类就是切主题。</p>
+
+                <h2>部署</h2>
+                <p>仓库改名为 renaissance-debu.github.io 之后，GitHub Pages 会自动把 main 分支的 index.html 发布到 https://renaissance-debu.github.io，git push 即部署，零配置。</p>
+
+                <blockquote>
+                  静态网站是理解 Web 的最好起点：HTML 管结构，CSS 管表现，JavaScript 管行为，DNS 和 HTTP 在幕后工作。这些概念在框架时代依然天天用到。
+                </blockquote>
+
+                <p>接下来打算给网站加文章的代码高亮和 RSS，也许再把项目卡片做成数据驱动渲染。慢慢来。</p>
+            </div>
+
+            <div class="post-footer">
+                <div class="post-nav">
+                    <span class="post-nav-prev">← <a href="hadoop-rental-analysis.html">阜阳租房数据分析</a></span>
+                    <span class="post-nav-next"><a href="../archive.html">返回归档</a> →</span>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 百谷黍 · baigushu</p>
+            <div class="social-links">
+                <a href="https://github.com/renaissance-debu" target="_blank" rel="noopener" title="GitHub">GitHub</a>
+                <a href="mailto:baigushu666@gmail.com" title="Email">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+            document.body.classList.add('dark');
+            toggle.textContent = '☀️';
+        }
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            toggle.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>
