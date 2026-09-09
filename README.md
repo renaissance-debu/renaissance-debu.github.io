@@ -1,6 +1,6 @@
 # baigushu 个人主页
 
-百谷黍（baigushu）的个人展示网站：项目经历、技术栈与学习记录。
+baigushu的个人展示网站：项目经历、技术栈与学习记录。
 
 **在线访问**：<https://renaissance-debu.github.io>
 
