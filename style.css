@@ -1337,8 +1337,119 @@ html[data-motion="paused"] {
 html[data-motion="paused"] *,
 html[data-motion="paused"] *::before,
 html[data-motion="paused"] *::after {
-  animation: none !important;
+  animation-play-state: paused !important;
   transition: none !important;
+}
+/* Motion stays behind the content; the inline flower groups share the pause control. */
+.scene canvas {
+  z-index: 1;
+  pointer-events: none;
+}
+.scene::after {
+  z-index: 2;
+}
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 75% 35%, #84aaa022, transparent 40%);
+  animation: nebula-breathe 14s ease-in-out infinite alternate;
+}
+.flower-sway {
+  transform-box: view-box;
+  animation: flower-sway var(--duration) ease-in-out var(--delay) infinite
+    alternate;
+}
+.moon {
+  animation: moon-float 10s ease-in-out infinite alternate;
+}
+.scene-star {
+  animation: star-breathe 4s ease-in-out infinite alternate;
+}
+.scene-star.second {
+  animation-delay: -2s;
+}
+html[data-scene-active="false"] .scene *,
+html[data-scene-active="false"] .scene::before {
+  animation-play-state: paused !important;
+}
+.sky-wish {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #bda77755;
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  padding: 2px 0;
+  min-height: 24px;
+  margin-left: 7px;
+}
+.sky-wish:hover {
+  color: var(--accent-dark);
+  border-bottom-color: currentColor;
+}
+.sky-wish:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+.hero-note {
+  flex-wrap: wrap;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@keyframes flower-sway {
+  from {
+    transform: rotate(calc(var(--sway) * -0.65));
+  }
+  to {
+    transform: rotate(var(--sway));
+  }
+}
+@keyframes moon-float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-7px);
+  }
+}
+@keyframes star-breathe {
+  from {
+    opacity: 0.35;
+    scale: 0.85;
+  }
+  to {
+    opacity: 1;
+    scale: 1.1;
+  }
+}
+@keyframes nebula-breathe {
+  from {
+    opacity: 0.35;
+    transform: translate(-1%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(1%, 2%);
+  }
+}
+@media (max-width: 760px) {
+  .flower-sway:not(.flower-front) {
+    animation: none;
+  }
+  .sky-wish {
+    margin-left: 0;
+  }
 }
 /* Keep compact navigation and the Chinese title on intentional lines. */
 nav a {
