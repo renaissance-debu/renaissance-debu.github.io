@@ -1,147 +1,357 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="百谷黍（baigushu）的个人主页 —— 软件工程应届生，项目与技术分享">
-    <title>百谷黍 · baigushu - 首页</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="百谷黍（baigushu）的星野花园。软件工程 2027 届本科生，记录 Java 后端、软件测试、项目实践与学习思考。"
+    />
+    <meta name="theme-color" content="#0b111b" />
+    <title>百谷黍 · 星野花园</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme-init.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body class="home">
+    <a class="skip-link" href="#main">跳到正文</a>
     <header>
-        <div class="container">
-            <a href="index.html" class="logo">baigushu</a>
-            <nav>
-                <a href="index.html" class="active">首页</a>
-                <a href="archive.html">归档</a>
-                <a href="about.html">关于</a>
-            </nav>
-            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">🌙</button>
+      <div class="container">
+        <a href="index.html" class="logo" aria-label="baigushu 首页"
+          >baigushu<small>星野花园</small></a
+        >
+        <nav aria-label="主导航">
+          <a href="index.html" class="active" aria-current="page">首页</a
+          ><a href="archive.html">归档</a><a href="about.html">关于</a>
+        </nav>
+        <div class="header-controls">
+          <button
+            class="motion-toggle"
+            id="motionToggle"
+            aria-label="暂停星空动画"
+            aria-pressed="false"
+          >
+            Ⅱ</button
+          ><button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="切换到晨光主题"
+          >
+            ☼
+          </button>
         </div>
+      </div>
     </header>
-
-    <main class="container">
-        <section class="hero">
-            <h1>你好，我是百谷黍</h1>
-            <p>软件工程 2027 届应届生，主攻测试与 Java 后端方向，喜欢把想法做成能跑起来的东西。这里是我的自留地：项目、思考与记录。</p>
-            <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">查看我的项目</a>
-                <a href="about.html" class="btn btn-ghost">关于我</a>
-            </div>
-        </section>
-
-        <section class="home-section" id="skills">
-            <h2 class="section-title">技术栈</h2>
-            <div class="skill-group">
-                <span class="skill-label">语言</span>
-                <span class="chip">Java</span>
-                <span class="chip">Python</span>
-                <span class="chip">SQL</span>
-            </div>
-            <div class="skill-group">
-                <span class="skill-label">后端</span>
-                <span class="chip">Spring Boot</span>
-                <span class="chip">MyBatis</span>
-                <span class="chip">Flask</span>
-            </div>
-            <div class="skill-group">
-                <span class="skill-label">数据库</span>
-                <span class="chip">MySQL</span>
-                <span class="chip">SQLite</span>
-                <span class="chip">Hive</span>
-            </div>
-            <div class="skill-group">
-                <span class="skill-label">工具</span>
-                <span class="chip">Git</span>
-                <span class="chip">Linux</span>
-                <span class="chip">Maven</span>
-                <span class="chip">Postman</span>
-                <span class="chip">Hadoop / Spark</span>
-            </div>
-        </section>
-
-        <section class="home-section" id="projects">
-            <h2 class="section-title">项目经历</h2>
-            <div class="posts">
-                <article class="post-card">
-                    <div class="post-meta">
-                        <span class="post-tag">Python</span>
-                        <span class="post-tag">Flask</span>
-                        <span class="post-tag">OpenCV</span>
-                    </div>
-                    <h2><a href="https://github.com/renaissance-debu/face-attendance-system" target="_blank" rel="noopener">人脸识别考勤系统</a></h2>
-                    <p>基于 Flask + face_recognition 的 B/S 架构考勤系统：人脸注册、实时识别登录与打卡、管理员后台与 CSV 导出，JWT 接口鉴权，支持打包为 Windows 免安装程序。</p>
-                    <a href="https://github.com/renaissance-debu/face-attendance-system" target="_blank" rel="noopener" class="read-more">GitHub 仓库 →</a>
-                </article>
-                <article class="post-card">
-                    <div class="post-meta">
-                        <span class="post-tag">Java</span>
-                        <span class="post-tag">Spring Boot</span>
-                        <span class="post-tag">MySQL</span>
-                    </div>
-                    <h2><a href="https://github.com/renaissance-debu/alumni-management-system" target="_blank" rel="noopener">校友信息管理系统</a></h2>
-                    <p>Spring Boot + MyBatis 的 RESTful 管理平台：增删改查、姓名模糊/学号精确的多条件组合检索与统计接口，409/404 异常语义完整，Bootstrap 5 单页前端。</p>
-                    <a href="https://github.com/renaissance-debu/alumni-management-system" target="_blank" rel="noopener" class="read-more">GitHub 仓库 →</a>
-                </article>
-                <article class="post-card">
-                    <div class="post-meta">
-                        <span class="post-tag">Hadoop</span>
-                        <span class="post-tag">Hive</span>
-                        <span class="post-tag">Spark</span>
-                    </div>
-                    <h2><a href="posts/hadoop-rental-analysis.html">阜阳租房数据分析</a></h2>
-                    <p>从零在虚拟机搭建 Hadoop 3.3.5 + Hive 3.1.3 + Spark 3.4.0 环境，爬取贝壳找房 180 条房源数据完成清洗入库与六个维度的离线分析，可视化呈现租金分布规律。</p>
-                    <a href="posts/hadoop-rental-analysis.html" class="read-more">阅读实践记录 →</a>
-                </article>
-            </div>
-        </section>
-
-        <section class="home-section" id="blog">
-            <h2 class="section-title">最新文章</h2>
-            <div class="posts">
-                <article class="post-card">
-                    <div class="post-meta">
-                        <time datetime="2026-09-09">2026年9月9日</time>
-                        <span class="post-tag">技术</span>
-                    </div>
-                    <h2><a href="posts/build-personal-site.html">用纯 HTML + CSS + GitHub Pages 搭起这个网站</a></h2>
-                    <p>没有框架、没有构建工具，从设计变量到暗色模式，一个静态个人站的完整搭建记录。</p>
-                </article>
-                <article class="post-card">
-                    <div class="post-meta">
-                        <time datetime="2026-09-05">2026年9月5日</time>
-                        <span class="post-tag">大数据</span>
-                    </div>
-                    <h2><a href="posts/hadoop-rental-analysis.html">基于 Hadoop + Hive + Spark 的阜阳租房数据分析</a></h2>
-                    <p>一次完整的大数据离线分析实践：数据采集、环境搭建、数仓清洗、多维分析与可视化。</p>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 百谷黍 · baigushu</p>
-            <div class="social-links">
-                <a href="https://github.com/renaissance-debu" target="_blank" rel="noopener" title="GitHub">GitHub</a>
-                <a href="mailto:baigushu666@gmail.com" title="Email">Email</a>
-            </div>
+    <main class="home-main" id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="scene" aria-hidden="true">
+          <canvas id="starfield"></canvas
+          ><img
+            class="garden"
+            src="assets/night-garden.svg"
+            alt=""
+            width="1200"
+            height="760"
+            fetchpriority="high"
+          />
+          <div class="orbit"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="moon"></div>
+          <span class="scene-star">✧</span
+          ><span class="scene-star second">✦</span
+          ><span class="scene-title">a little universe of my own</span>
         </div>
+        <div class="container">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span aria-hidden="true">✦</span> WELCOME TO MY LITTLE UNIVERSE
+            </p>
+            <p class="hero-kicker">你好，我是百谷黍</p>
+            <h1 id="hero-title">心有星辰，<br />让想法<em>生根开花。</em></h1>
+            <p class="hero-description">
+              软件工程 2027 届本科生，探索软件测试与 Java 后端。<br />把想法写成代码，把成长留在这里。<br />欢迎来到我的一小片星野。
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects"
+                >看看我的项目 <span aria-hidden="true">↗</span></a
+              ><a class="btn btn-ghost" href="about.html"
+                >认识一下我 <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <p class="hero-note">
+              <span class="status-dot" aria-hidden="true"></span>
+              持续学习，缓慢而坚定地生长
+            </p>
+          </div>
+        </div>
+        <span class="scene-caption" aria-hidden="true"
+          >星光落下的地方，想法正在发芽。</span
+        >
+        <div class="hero-bottom container">
+          <a class="scroll-cue" href="#projects"
+            ><span aria-hidden="true">↓</span> 向下探索我的小宇宙</a
+          ><span aria-hidden="true">CODE, GROW & BLOOM &nbsp; ✦</span>
+        </div>
+      </section>
+      <div class="container">
+        <section
+          class="home-section"
+          id="projects"
+          aria-labelledby="projects-title"
+        >
+          <div class="section-top">
+            <div>
+              <p class="eyebrow">01 / SELECTED PROJECTS</p>
+              <h2 class="section-title" id="projects-title">
+                让想法落地<em>Things I've built</em>
+              </h2>
+            </div>
+            <a
+              class="section-link"
+              href="https://github.com/renaissance-debu"
+              target="_blank"
+              rel="noopener"
+              >我的 GitHub <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="posts project-grid">
+            <article class="post-card project-card">
+              <div class="project-art" aria-hidden="true">
+                <span class="art-label">FACE RECOGNITION</span
+                ><svg
+                  viewBox="0 0 160 100"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                >
+                  <rect x="50" y="15" width="60" height="70" rx="12" />
+                  <path d="M40 30V12h18m44 0h18v18M40 70v18h18m44 0h18V70" />
+                  <circle cx="80" cy="41" r="12" />
+                  <path
+                    d="M60 70c0-19 40-19 40 0M30 51h100"
+                    opacity=".55"
+                  /></svg
+                ><span class="art-corner">01 / PROJECT</span>
+              </div>
+              <div class="post-meta">
+                <span class="post-tag">Python</span>
+                <span class="post-tag">Flask</span>
+                <span class="post-tag">OpenCV</span>
+              </div>
+              <h2>
+                <a
+                  href="https://github.com/renaissance-debu/face-attendance-system"
+                  target="_blank"
+                  rel="noopener"
+                  >人脸识别考勤系统</a
+                >
+              </h2>
+              <p>
+                基于 Flask + face_recognition 的 B/S
+                架构考勤系统：人脸注册、实时识别登录与打卡、管理员后台与 CSV
+                导出，JWT 接口鉴权，支持打包为 Windows 免安装程序。
+              </p>
+              <a
+                href="https://github.com/renaissance-debu/face-attendance-system"
+                target="_blank"
+                rel="noopener"
+                class="read-more"
+                >GitHub 仓库 →</a
+              >
+            </article>
+            <article class="post-card project-card">
+              <div class="project-art alumni" aria-hidden="true">
+                <span class="art-label">ALUMNI MANAGEMENT</span
+                ><svg
+                  viewBox="0 0 160 100"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                >
+                  <rect x="24" y="14" width="112" height="74" rx="6" />
+                  <path
+                    d="M24 30h112M68 30v58M32 22h3m6 0h3m6 0h3M78 43h42M78 53h30M78 63h39M78 73h25"
+                  />
+                  <circle cx="46" cy="48" r="8" />
+                  <path d="M34 74c0-20 24-20 24 0" /></svg
+                ><span class="art-corner">02 / PROJECT</span>
+              </div>
+              <div class="post-meta">
+                <span class="post-tag">Java</span>
+                <span class="post-tag">Spring Boot</span>
+                <span class="post-tag">MySQL</span>
+              </div>
+              <h2>
+                <a
+                  href="https://github.com/renaissance-debu/alumni-management-system"
+                  target="_blank"
+                  rel="noopener"
+                  >校友信息管理系统</a
+                >
+              </h2>
+              <p>
+                Spring Boot + MyBatis 的 RESTful
+                管理平台：增删改查、姓名模糊/学号精确的多条件组合检索与统计接口，409/404
+                异常语义完整，Bootstrap 5 单页前端。
+              </p>
+              <a
+                href="https://github.com/renaissance-debu/alumni-management-system"
+                target="_blank"
+                rel="noopener"
+                class="read-more"
+                >GitHub 仓库 →</a
+              >
+            </article>
+            <article class="post-card project-card">
+              <div class="project-art data" aria-hidden="true">
+                <span class="art-label">DATA EXPLORATION</span
+                ><svg
+                  viewBox="0 0 160 100"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                >
+                  <path
+                    d="M24 16v70h116M40 86V64h15v22M70 86V44h15v42M100 86V25h15v61M32 50l32-19 27 3 30-23"
+                  />
+                  <circle cx="64" cy="31" r="3" />
+                  <circle cx="91" cy="34" r="3" />
+                  <circle cx="121" cy="11" r="3" /></svg
+                ><span class="art-corner">03 / PROJECT</span>
+              </div>
+              <div class="post-meta">
+                <span class="post-tag">Hadoop</span>
+                <span class="post-tag">Hive</span>
+                <span class="post-tag">Spark</span>
+              </div>
+              <h2>
+                <a href="posts/hadoop-rental-analysis.html">阜阳租房数据分析</a>
+              </h2>
+              <p>
+                从零在虚拟机搭建 Hadoop 3.3.5 + Hive 3.1.3 + Spark 3.4.0
+                环境，爬取贝壳找房 180
+                条房源数据完成清洗入库与六个维度的离线分析，可视化呈现租金分布规律。
+              </p>
+              <a href="posts/hadoop-rental-analysis.html" class="read-more"
+                >阅读实践记录 →</a
+              >
+            </article>
+          </div>
+        </section>
+        <section
+          class="home-section skills-layout"
+          id="skills"
+          aria-labelledby="skills-title"
+        >
+          <div>
+            <p class="eyebrow">02 / MY TOOLBOX</p>
+            <h2 class="section-title" id="skills-title">生长的工具箱</h2>
+            <p class="section-intro">
+              在实践中学习，在解决问题的过程中，<br />慢慢拓宽自己的边界。
+            </p>
+          </div>
+          <div>
+            <div class="skill-group">
+              <span class="skill-label">语言</span>
+              <span class="chip">Java</span>
+              <span class="chip">Python</span>
+              <span class="chip">SQL</span>
+            </div>
+            <div class="skill-group">
+              <span class="skill-label">后端</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">MyBatis</span>
+              <span class="chip">Flask</span>
+            </div>
+            <div class="skill-group">
+              <span class="skill-label">数据库</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">SQLite</span>
+              <span class="chip">Hive</span>
+            </div>
+            <div class="skill-group">
+              <span class="skill-label">工具</span>
+              <span class="chip">Git</span>
+              <span class="chip">Linux</span>
+              <span class="chip">Maven</span>
+              <span class="chip">Postman</span>
+              <span class="chip">Hadoop / Spark</span>
+            </div>
+          </div>
+        </section>
+        <section class="home-section" id="blog" aria-labelledby="blog-title">
+          <div class="section-top">
+            <div>
+              <p class="eyebrow">03 / NOTES ALONG THE WAY</p>
+              <h2 class="section-title" id="blog-title">
+                沿途的记录<em>Learning in public</em>
+              </h2>
+            </div>
+            <a class="section-link" href="archive.html"
+              >全部文章 <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="journal-list">
+            <article class="journal-row">
+              <time datetime="2026-09-09">2026.09.09</time>
+              <div>
+                <h3>
+                  <a href="posts/build-personal-site.html"
+                    >用纯 HTML + CSS + GitHub Pages 搭起这个网站</a
+                  >
+                </h3>
+                <p>从设计变量到主题切换，一个静态个人站的搭建记录。</p>
+              </div>
+              <a
+                href="posts/build-personal-site.html"
+                aria-label="阅读：用纯 HTML + CSS + GitHub Pages 搭起这个网站"
+                >↗</a
+              >
+            </article>
+            <article class="journal-row">
+              <time datetime="2026-09-05">2026.09.05</time>
+              <div>
+                <h3>
+                  <a href="posts/hadoop-rental-analysis.html"
+                    >基于 Hadoop + Hive + Spark 的阜阳租房数据分析</a
+                  >
+                </h3>
+                <p>从数据采集到多维分析，记录一次完整的大数据实践。</p>
+              </div>
+              <a
+                href="posts/hadoop-rental-analysis.html"
+                aria-label="阅读：阜阳租房数据分析"
+                >↗</a
+              >
+            </article>
+          </div>
+        </section>
+        <section class="closing" aria-labelledby="closing-title">
+          <span class="flower-mark" aria-hidden="true">✳</span>
+          <h2 id="closing-title">很高兴，在这片星野遇见你。</h2>
+          <p>关于代码、想法，或是一个新的可能，欢迎来信聊聊。</p>
+          <a href="mailto:baigushu666@gmail.com">打个招呼 &nbsp; ↗</a
+          ><small>STAY CURIOUS. KEEP GROWING.</small>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 百谷黍 · baigushu
+          <span aria-hidden="true">&nbsp; / &nbsp;</span>
+          在自己的节奏里，慢慢生长。
+        </p>
+        <div class="social-links">
+          <a
+            href="https://github.com/renaissance-debu"
+            target="_blank"
+            rel="noopener"
+            >GitHub ↗</a
+          ><a href="mailto:baigushu666@gmail.com">Email ↗</a>
+        </div>
+      </div>
     </footer>
-
-    <script>
-        const toggle = document.getElementById('themeToggle');
-        const saved = localStorage.getItem('theme');
-        if (saved === 'dark') {
-            document.body.classList.add('dark');
-            toggle.textContent = '☀️';
-        }
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-            const isDark = document.body.classList.contains('dark');
-            toggle.textContent = isDark ? '☀️' : '🌙';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-    </script>
-</body>
+  </body>
 </html>
